@@ -1,0 +1,15 @@
+.input_box {
+  border: 1px solid #d3d3d3;
+  display: flex;
+
+  input {
+    flex-grow: 1;
+  }
+}
+
+.input_box:hover {
+  border: 1px solid black;
+}
+.input_box:focus-within {
+  border: 2px solid black;
+}

@@ -1,0 +1,45 @@
+:root {
+  --b1: #484848;
+  --b2: #828282;
+  --w1: #ffffff;
+  --w2: #f0f0f0;
+  --red1: #e7534c;
+  --blue1: #007aff;
+  --green1: #4ed273;
+  --green2: #e4f8ea;
+  --green3: #157941;
+  --orange1: #eaa31a;
+  --orange2: #fcf1dd;
+  --orange3: #fbe2d4;
+  --orange4: #ea9228;
+  --pink1: #ed6f77;
+  --pink2: #ff3a51;
+  --gold1: linear-gradient(
+    45deg,
+    #b67b03 0%,
+    #daaf08 45%,
+    #fee9a0 70%,
+    #daaf08 85%,
+    #b67b03 90% 100%
+  );
+  --silver1: linear-gradient(
+    45deg,
+    #757575 0%,
+    #9e9e9e 45%,
+    #e8e8e8 70%,
+    #9e9e9e 85%,
+    #757575 90% 100%
+  );
+  // 背景
+  --error1: #fdeded;
+  // 文字
+  --error2: #7d4746;
+  // アイコン
+  --error3: #d74242;
+  // 背景
+  --success1: #edf7ed;
+  // 文字
+  --success2: #204822;
+  // アイコン
+  --success3: #428a45;
+}

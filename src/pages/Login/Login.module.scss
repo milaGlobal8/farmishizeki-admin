@@ -1,0 +1,20 @@
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.login_icon {
+  background-color: #eaa31a;
+  border-radius: 50%;
+  height: 40px;
+  padding: 7px;
+  width: 40px;
+}
+
+.error_icon,
+.success_icon {
+  height: 22px;
+  width: 22px;
+}
