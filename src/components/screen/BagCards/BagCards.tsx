@@ -3,13 +3,14 @@ import { Box, Flexbox } from "../../common";
 import { Card } from "../Card";
 import { Loading } from "../Loading";
 import { BagCardsProps } from "./BagCards.types";
+import styles from "./BagCards.module.scss"
 
 const BagCards = (props: BagCardsProps) => {
   const { vegs } = props;
 
   return (
     <Flexbox
-      className="bagCards"
+      className={styles.bagCards}
       flexDirection="column"
       flexGrow={1}
       gap={30}

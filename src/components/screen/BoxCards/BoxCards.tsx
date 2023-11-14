@@ -2,6 +2,7 @@ import { Vegs } from "../../../types/Vegs.types";
 import { Box, Flexbox } from "../../common";
 import { Card } from "../Card";
 import { Loading } from "../Loading";
+import styles from "./BoxCards.module.scss";
 import { BoxCardsProps } from "./BoxCards.types";
 
 const BoxCards = (props: BoxCardsProps) => {
@@ -9,7 +10,7 @@ const BoxCards = (props: BoxCardsProps) => {
 
   return (
     <Flexbox
-      className="BoxCards"
+      className={styles.boxCards}
       flexDirection="column"
       flexGrow={1}
       gap={30}
