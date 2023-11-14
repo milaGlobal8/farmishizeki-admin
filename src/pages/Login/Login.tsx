@@ -10,7 +10,7 @@ import {
   Input,
   Typography,
 } from "../../components/common";
-import { Loading } from "../../components/screen";
+import { Loading, Version } from "../../components/screen";
 import { COLOR } from "../../constants/color";
 import { useLogin } from "../../hooks/useAuth";
 import styles from "./Login.module.scss";
@@ -137,6 +137,10 @@ const Login = () => {
           </Button>
         </Form>
       )}
+       {/* アプリバージョン情報 */}
+       <Version>
+        <Typography>Version 0.1.0</Typography>
+      </Version>
     </Box>
   );
 };
