@@ -76,7 +76,7 @@ const Card = (props: CardProps) => {
             >
               －
             </Button>
-            <Typography className="stock" width={20}>
+            <Typography className="stock" width={20} textAlign="center">
               {stockA}
             </Typography>
             <Button
