@@ -137,10 +137,12 @@ const Login = () => {
           </Button>
         </Form>
       )}
-       {/* アプリバージョン情報 */}
-       <Version>
-        <Typography>Version 0.1.0</Typography>
-      </Version>
+      {/* アプリバージョン情報 */}
+      {!isLoading && (
+        <Version>
+          <Typography>Version 0.1.0</Typography>
+        </Version>
+      )}
     </Box>
   );
 };
