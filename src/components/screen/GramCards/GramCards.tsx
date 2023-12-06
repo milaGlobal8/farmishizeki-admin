@@ -1,3 +1,4 @@
+import { COLOR } from "../../../constants/color";
 import { Flexbox } from "../../common";
 import InputCards from "../InputCard/InputCard";
 import styles from "./GramCards.module.scss";
@@ -17,6 +18,9 @@ const GramCards = (props: GramCardsProps) => {
             name={veg.name}
             value={veg.aGramStock}
             fieldName="aGramStock"
+            tagName="A品"
+            tagBgColor={COLOR.GOLD1}
+            tagColor={COLOR.W1}
           />
           {/* B品 */}
           <InputCards
@@ -25,6 +29,9 @@ const GramCards = (props: GramCardsProps) => {
             name={veg.name}
             value={veg.bGramStock}
             fieldName="bGramStock"
+            tagName="B品"
+            tagBgColor={COLOR.SILVER1}
+            tagColor={COLOR.W1}
           />
         </Flexbox>
       ))}

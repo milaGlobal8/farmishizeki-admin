@@ -8,7 +8,8 @@ import { InputCardProps } from "./InputCard.types";
 import styles from "./InputCards.module.scss";
 
 const InputCards = (props: InputCardProps) => {
-  const { alt, image, name, value, fieldName } = props;
+  const { alt, image, name, value, fieldName, tagName, tagBgColor, tagColor } =
+    props;
 
   // state
   const [stock, setStock] = useState<number | undefined>(value);
@@ -32,7 +33,7 @@ const InputCards = (props: InputCardProps) => {
           <Typography fontWeight="bold">{name}</Typography>
         </Flexbox>
         <Flexbox justifyContent="space-between">
-          <Tag tagName="A品" bgColor={COLOR.GOLD1} color={COLOR.W1} />
+          <Tag tagName={tagName} bgColor={tagBgColor} color={tagColor} />
           <Typography fontWeight="bold">変更前：{value}g</Typography>
         </Flexbox>
         <Input
