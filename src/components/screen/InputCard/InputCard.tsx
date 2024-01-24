@@ -7,7 +7,7 @@ import { Tag } from "../Tag";
 import { InputCardProps } from "./InputCard.types";
 import styles from "./InputCards.module.scss";
 
-const InputCards = (props: InputCardProps) => {
+const InputCard = (props: InputCardProps) => {
   const { alt, image, name, value, fieldName, tagName, tagBgColor, tagColor } =
     props;
 
@@ -61,4 +61,4 @@ const InputCards = (props: InputCardProps) => {
   );
 };
 
-export default InputCards;
+export default InputCard;

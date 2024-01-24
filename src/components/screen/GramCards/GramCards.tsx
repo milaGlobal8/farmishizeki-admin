@@ -1,6 +1,6 @@
 import { COLOR } from "../../../constants/color";
 import { Flexbox } from "../../common";
-import InputCards from "../InputCard/InputCard";
+import InputCard from "../InputCard/InputCard";
 import styles from "./GramCards.module.scss";
 import { GramCardsProps } from "./GramCards.types";
 
@@ -12,7 +12,7 @@ const GramCards = (props: GramCardsProps) => {
       {vegs.map((veg) => (
         <Flexbox key={veg.id} className="box" flexDirection="column" gap={40}>
           {/* A品 */}
-          <InputCards
+          <InputCard
             alt={veg.name}
             image={veg.image}
             name={veg.name}
@@ -23,7 +23,7 @@ const GramCards = (props: GramCardsProps) => {
             tagColor={COLOR.W1}
           />
           {/* B品 */}
-          <InputCards
+          <InputCard
             alt={veg.name}
             image={veg.image}
             name={veg.name}
