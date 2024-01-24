@@ -3,6 +3,8 @@ export { default as BoxCards } from "./BoxCards/BoxCards";
 export { default as Card } from "./Card/Card";
 export { default as GramCards } from "./GramCards/GramCards";
 export { default as Header } from "./Header/Header";
+export { default as InputCard } from "./InputCard/InputCard";
 export { default as Loading } from "./Loading/Loading";
+export { default as PriceCards } from "./PriceCards/PriceCards";
 export { default as Tag } from "./Tag/Tag";
 export { default as Version } from "./Version/Version";
