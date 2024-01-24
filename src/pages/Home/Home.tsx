@@ -7,6 +7,7 @@ import {
   BoxCards,
   GramCards,
   Header,
+  PriceCards,
   Version,
 } from "../../components/screen";
 import { COLOR } from "../../constants/color";
@@ -121,7 +122,7 @@ const Home = () => {
       {target === "袋" && <BagCards vegs={vegs} />}
       {target === "箱" && <BoxCards vegs={vegs} />}
       {target === "g" && <GramCards vegs={vegs} />}
-      {target === "値段" && <GramCards vegs={vegs} />}
+      {target === "値段" && <PriceCards vegs={vegs} />}
       {/* アプリバージョン情報 */}
       <Version>
         <Typography>Version 0.1.0</Typography>
