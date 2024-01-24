@@ -104,11 +104,24 @@ const Home = () => {
         >
           g
         </Button>
+        <Button
+          bgColor={COLOR.W1}
+          color={target === "値段" ? COLOR.ORANGE4 : COLOR.B1}
+          fontWeight="bold"
+          height={30}
+          width={60}
+          textAlign="center"
+          opacity={target === "値段" ? 1 : 0.3}
+          onClick={(e) => navigateHooks(e)}
+        >
+          値段
+        </Button>
       </Flexbox>
       {/* カード一覧 */}
       {target === "袋" && <BagCards vegs={vegs} />}
       {target === "箱" && <BoxCards vegs={vegs} />}
       {target === "g" && <GramCards vegs={vegs} />}
+      {target === "値段" && <GramCards vegs={vegs} />}
       {/* アプリバージョン情報 */}
       <Version>
         <Typography>Version 0.1.0</Typography>
