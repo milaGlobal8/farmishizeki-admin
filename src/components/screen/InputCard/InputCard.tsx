@@ -45,7 +45,11 @@ const InputCard = (props: InputCardProps) => {
   return (
     <Form
       className={classNames(styles.form, fieldName)}
-      onSubmit={(e) => updatePrice(e, stock, name)}
+      onSubmit={(e) =>
+        fieldName?.indexOf("Price") !== -1
+          ? updatePrice(e, stock, name)
+          : updateGram(e, stock, name)
+      }
     >
       <Flexbox
         className={styles.card}
@@ -60,7 +64,13 @@ const InputCard = (props: InputCardProps) => {
         </Flexbox>
         {/* fieldNameにPriceが含まれていた場合、「販売形態」を表示する */}
         <Flexbox justifyContent="end">
-          <Typography fontWeight="bolder" fontSize="large" color={COLOR.ORANGE1}>{salesMethod}</Typography>
+          <Typography
+            fontWeight="bolder"
+            fontSize="large"
+            color={COLOR.ORANGE1}
+          >
+            {salesMethod}
+          </Typography>
         </Flexbox>
         {/* 変更前の「値段」or「グラム」 */}
         <Flexbox justifyContent="space-between">
