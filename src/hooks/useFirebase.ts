@@ -134,5 +134,46 @@ export const useUpdate = () => {
     }
   };
 
-  return { updateByClick, updateGram };
+  // 値段の変更
+  const updatePrice = async (
+    e: React.FormEvent<HTMLFormElement>,
+    stock: number | undefined,
+    name: string | undefined
+  ) => {
+    window.confirm("入力した内容で更新いたしますがよろしいですか？");
+    e.preventDefault();
+    // 更新するフィールド名
+    const fieldName = e.currentTarget.classList[1];
+
+    // 更新する内容
+    let updateObj = {
+      [fieldName]: stock,
+      updatedAt: serverTimestamp(),
+    };
+
+    // DBを呼び出す
+    const firestore = firebaseApp.firestore;
+    try {
+      // ドキュメントidを取得するため
+      const vegsRef = collection(firestore, "Vegs");
+      const q = query(vegsRef, where("name", "==", name));
+
+      // 更新するドキュメントを取得してくる
+      const querySnapshot = await getDocs(q);
+
+      // 取得してきたドキュメントのidをもとに、新しくドキュメントのstockフィールドを更新する
+      querySnapshot.forEach(async (data) => {
+        const vegRef = doc(firestore, "Vegs", data.id);
+
+        await updateDoc(vegRef, updateObj).catch((err) => {
+          alert("個数の変更に失敗しました。");
+        });
+      });
+    } catch (err) {
+      console.log(err);
+      alert("個数の変更に失敗しました。");
+    }
+  };
+
+  return { updateByClick, updateGram, updatePrice };
 };
