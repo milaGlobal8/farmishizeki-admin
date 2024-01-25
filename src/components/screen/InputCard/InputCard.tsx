@@ -16,7 +16,7 @@ const InputCard = (props: InputCardProps) => {
   const [salesMethod, setSalesMethod] = useState<string | undefined>("");
 
   // hooks
-  const { updateGram } = useUpdate();
+  const { updateGram, updatePrice } = useUpdate();
 
   // fieldNameが「販売形態＋Price」の場合のみ、販売形態を日本語に変更
   useEffect(() => {
@@ -45,7 +45,7 @@ const InputCard = (props: InputCardProps) => {
   return (
     <Form
       className={classNames(styles.form, fieldName)}
-      onSubmit={(e) => updateGram(e, stock, name)}
+      onSubmit={(e) => updatePrice(e, stock, name)}
     >
       <Flexbox
         className={styles.card}
