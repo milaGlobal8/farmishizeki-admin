@@ -10,3 +10,7 @@ export type InputCardProps = {
   tagBgColor?: Color | null;
   tagColor?: Color | null;
 };
+
+export type Dictionary = {
+  [key: string]: string;
+};
