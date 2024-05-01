@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ErrorIcon from "../../assets/icons/error.svg";
 import LoginIcon from "../../assets/icons/login.svg";
@@ -5,6 +6,7 @@ import SuccessIcon from "../../assets/icons/success.svg";
 import {
   Box,
   Button,
+  Flexbox,
   Form,
   Image,
   Input,
@@ -22,13 +24,35 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<LoginProps>();
+
+  // state
+  const [isCheck, setIsCheck] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+
+  const { email, password } = watch();
 
   // hooks
   const { success, error, isLoading, login } = useLogin();
 
+  useEffect(() => {
+    if (email && password && isCheck) {
+      setIsComplete(true);
+    }
+  }, [email, password, isCheck]);
+
   // ログイン関数
-  const onSubmit: SubmitHandler<LoginProps> = (data) => login(data);
+  // const onSubmit: SubmitHandler<LoginProps> = (data) => login(data);
+  const onSubmit: SubmitHandler<LoginProps> = (data) => {
+    const allValuesSet = Object.values(data).every(
+      (value) => value !== undefined && value !== null && value !== ""
+    );
+
+    if (allValuesSet && isComplete) {
+      login(data);
+    }
+  };
 
   return (
     <Box width={343} paddingX={16} marginX="auto" marginTop={100}>
@@ -122,6 +146,16 @@ const Login = () => {
               {errors.password?.message}
             </Typography>
           )}
+          <Flexbox gap={4}>
+            <input
+              style={{ display: "block" }}
+              type="checkbox"
+              onChange={() => setIsCheck(!isCheck)}
+            />
+            <Typography marginTop={3} color={COLOR.BLUE1} family="sans-serif">
+              すべて入力しましたか？
+            </Typography>
+          </Flexbox>
           <Button
             className="login_button"
             type="submit"
@@ -132,6 +166,7 @@ const Login = () => {
             marginTop={24}
             textAlign="center"
             borderRadius={4}
+            disabled={!isComplete}
           >
             ログイン
           </Button>
