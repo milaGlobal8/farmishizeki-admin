@@ -25,7 +25,9 @@ const Typography = (props: TypographyProps) => {
     paddingX,
     paddingY,
     margin,
+    marginTop,
     borderRadius,
+    lineHeight
   } = props;
   return (
     <span
@@ -51,7 +53,9 @@ const Typography = (props: TypographyProps) => {
         paddingTop: paddingY,
         paddingBottom: paddingY,
         margin: margin,
+        marginTop: marginTop,
         borderRadius: borderRadius,
+        lineHeight: lineHeight,
       }}
     >
       {children}

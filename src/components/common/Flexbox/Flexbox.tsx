@@ -36,6 +36,7 @@ const Flexbox = (props: FlexboxProps) => {
     bgColor,
     color,
     opacity,
+    lineHeight,
   } = props;
   return (
     <div
@@ -73,6 +74,7 @@ const Flexbox = (props: FlexboxProps) => {
         background: bgColor ? `var(--${bgColor})` : undefined,
         color: color ? `var(--${color})` : undefined,
         opacity: opacity,
+        lineHeight: lineHeight,
       }}
     >
       {children}

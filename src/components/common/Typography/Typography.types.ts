@@ -31,5 +31,7 @@ export type TypographyProps = {
   paddingX?: number | "auto";
   paddingY?: number | "auto";
   margin?: number | "auto" | "100%";
+  marginTop?: number;
   borderRadius?: number;
+  lineHeight?: number
 };

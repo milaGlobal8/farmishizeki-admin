@@ -39,4 +39,5 @@ export type FlexboxProps = {
   bgColor?: Color | null;
   color?: Color | null;
   opacity?: number;
+  lineHeight?: number;
 };
