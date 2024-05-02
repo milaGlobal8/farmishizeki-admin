@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import ErrorIcon from "../../assets/icons/error.svg";
 import LoginIcon from "../../assets/icons/login.svg";
@@ -6,7 +5,6 @@ import SuccessIcon from "../../assets/icons/success.svg";
 import {
   Box,
   Button,
-  Flexbox,
   Form,
   Image,
   Input,
@@ -24,35 +22,14 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
+    setValue,
   } = useForm<LoginProps>();
-
-  // state
-  const [isCheck, setIsCheck] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
-
-  const { email, password } = watch();
 
   // hooks
   const { success, error, isLoading, login } = useLogin();
 
-  useEffect(() => {
-    if (email && password && isCheck) {
-      setIsComplete(true);
-    }
-  }, [email, password, isCheck]);
-
   // ログイン関数
-  // const onSubmit: SubmitHandler<LoginProps> = (data) => login(data);
-  const onSubmit: SubmitHandler<LoginProps> = (data) => {
-    const allValuesSet = Object.values(data).every(
-      (value) => value !== undefined && value !== null && value !== ""
-    );
-
-    if (allValuesSet && isComplete) {
-      login(data);
-    }
-  };
+  const onSubmit: SubmitHandler<LoginProps> = (data) => login(data);
 
   return (
     <Box width={343} paddingX={16} marginX="auto" marginTop={100}>
@@ -122,6 +99,9 @@ const Login = () => {
               pattern:
                 /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/,
             }}
+            onChange={(e) =>
+              setValue("email", e.target.value, { shouldValidate: true })
+            }
           />
           <Input
             className="password"
@@ -137,25 +117,19 @@ const Login = () => {
             registerOptions={{
               minLength: {
                 value: 8,
-                message: "8文字以上で入力してください。",
+                message: "パスワードは8文字以上",
               },
             }}
+            onChange={(e) =>
+              setValue("password", e.target.value, { shouldValidate: true })
+            }
           />
           {errors.password?.message && (
             <Typography color={COLOR.RED1}>
               {errors.password?.message}
             </Typography>
           )}
-          <Flexbox gap={4}>
-            <input
-              style={{ display: "block" }}
-              type="checkbox"
-              onChange={() => setIsCheck(!isCheck)}
-            />
-            <Typography marginTop={3} color={COLOR.BLUE1} family="sans-serif">
-              すべて入力しましたか？
-            </Typography>
-          </Flexbox>
+
           <Button
             className="login_button"
             type="submit"
@@ -166,7 +140,7 @@ const Login = () => {
             marginTop={24}
             textAlign="center"
             borderRadius={4}
-            disabled={!isComplete}
+            // disabled={!isComplete}
           >
             ログイン
           </Button>
