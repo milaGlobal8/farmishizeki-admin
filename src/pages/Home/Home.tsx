@@ -111,7 +111,7 @@ const Home = () => {
       {target === "g" && <GramCards vegs={vegs} />}
       {/* アプリバージョン情報 */}
       <Version>
-        <Typography>Version 0.1.0</Typography>
+        <Typography>Version 1.1.0</Typography>
       </Version>
     </Flexbox>
   );
