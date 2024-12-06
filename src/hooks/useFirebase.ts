@@ -65,6 +65,12 @@ export const useUpdate = () => {
     // 値
     const updateValue = updateFieldName === fieldNameA ? stockA : stockB;
 
+    // 0判定
+    const numAfterUpdated = sign === "plus" ? updateValue + 1 : updateValue - 1;
+    if (numAfterUpdated === 0) {
+      window.confirm("在庫数が0になりますが、0に変更しますか？");
+    }
+
     // 更新する内容
     let updateObj = {
       [updateFieldName]: sign === "plus" ? updateValue + 1 : updateValue - 1,
