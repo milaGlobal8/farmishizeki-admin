@@ -68,7 +68,10 @@ export const useUpdate = () => {
     // 0判定
     const numAfterUpdated = sign === "plus" ? updateValue + 1 : updateValue - 1;
     if (numAfterUpdated === 0) {
-      window.confirm("在庫数が0になりますが、0に変更しますか？");
+      const isUpdated = window.confirm(
+        "在庫数を0に更新いたしますがよろしいですか？"
+      );
+      if (!isUpdated) return;
     }
 
     // 更新する内容
@@ -105,7 +108,10 @@ export const useUpdate = () => {
     stock: number | undefined,
     name: string | undefined
   ) => {
-    window.confirm("入力した内容で更新いたしますがよろしいですか？");
+    const isUpdated = window.confirm(
+      "入力した内容で更新いたしますがよろしいですか？"
+    );
+    if (!isUpdated) return;
     e.preventDefault();
     // 更新するフィールド名
     const fieldName = e.currentTarget.classList[1];
@@ -146,7 +152,10 @@ export const useUpdate = () => {
     stock: number | undefined,
     name: string | undefined
   ) => {
-    window.confirm("入力した内容で更新いたしますがよろしいですか？");
+    const isUpdated = window.confirm(
+      "入力した内容で更新いたしますがよろしいですか？"
+    );
+    if (!isUpdated) return;
     e.preventDefault();
     // 更新するフィールド名
     const fieldName = e.currentTarget.classList[1];
