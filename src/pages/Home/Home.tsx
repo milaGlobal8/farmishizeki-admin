@@ -125,7 +125,7 @@ const Home = () => {
       {target === "値段" && <PriceCards vegs={vegs} />}
       {/* アプリバージョン情報 */}
       <Version>
-        <Typography>Version 1.1.0</Typography>
+        <Typography>Version 1.1.1</Typography>
       </Version>
     </Flexbox>
   );

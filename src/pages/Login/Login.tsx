@@ -149,7 +149,7 @@ const Login = () => {
       {/* アプリバージョン情報 */}
       {!isLoading && (
         <Version>
-          <Typography>Version 1.1.0</Typography>
+          <Typography>Version 1.1.1</Typography>
         </Version>
       )}
     </Box>
